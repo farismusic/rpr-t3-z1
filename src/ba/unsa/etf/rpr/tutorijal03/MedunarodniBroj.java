@@ -13,6 +13,11 @@ public class MedunarodniBroj extends TelefonskiBroj {
         return pozivni +bez_pozivnog;
     }
 
+    public String getPozivni() {
+        return pozivni;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
