@@ -22,7 +22,7 @@ public class Imenik {
         String vrati = new String();
         int k=1;
         for (Map.Entry<String, TelefonskiBroj> value :  imenik.entrySet()){
-            if(value.getKey().charAt(0) ==  s) vrati = "" + (k++) + ". " + value.getKey() + " " + value.getValue().ispisi() + "\n";
+            if(value.getKey().charAt(0) ==  s) vrati = "" + (k++) + ". " + value.getKey() + " - " + value.getValue().ispisi() + "\n";
         }
         return vrati;
     }
@@ -36,6 +36,10 @@ public class Imenik {
             if(value.getValue().ispisi().equals(pozivni)) set.add(value.getKey());
         }
         return set;
+    }
+
+    Set<TelefonskiBroj> izGradaBrojevi(Grad g){
+        return new TreeSet<TelefonskiBroj>();
     }
 
 
