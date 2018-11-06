@@ -22,16 +22,11 @@ public class Imenik {
         String vrati = new String();
         int k=1;
         for (Map.Entry<String, TelefonskiBroj> value :  imenik.entrySet()){
-<<<<<<< HEAD
             if(value.getKey().charAt(0) ==  s) vrati = "" + (k++) + ". " + value.getKey() + " - " + value.getValue().ispisi() + "\n";
-=======
-            if(value.getKey().charAt(0) ==  s) vrati = "" + (k++) + ". " + value.getKey() + " " + value.getValue().ispisi() + "\n";
->>>>>>> origin/master
         }
         return vrati;
     }
 
-<<<<<<< HEAD
     Set<String> izGrada(Grad g){
         FiksniBroj broj = new FiksniBroj(g, "1234");
         String pozivni = new String(broj.getPozivni());
@@ -46,13 +41,6 @@ public class Imenik {
     Set<TelefonskiBroj> izGradaBrojevi(Grad g){
         return new TreeSet<TelefonskiBroj>();
     }
-=======
-    /*Set<String> izGrada(Grad g){
-        Set<String> set = new Set<String>();
-        KORISTITI TREE SET
-
-    }*/
->>>>>>> origin/master
 
 
     @Override
@@ -68,3 +56,4 @@ public class Imenik {
         return Objects.hash(imenik);
     }
 }
+
