@@ -98,4 +98,5 @@ public class FiksniBroj extends TelefonskiBroj {
     public String ispisi(){
         return new String(pozivni+"/"+bez_pozivnog);
     }
+
 }

@@ -4,7 +4,7 @@ import ba.unsa.etf.rpr.tutorijal03.FiksniBroj.Grad;
 
 import java.util.*;
 
-public class Imenik {
+public class Imenik implements Comparable {
     private Map<String, TelefonskiBroj> imenik = new HashMap<String, TelefonskiBroj>();
     public void dodaj(String ime, TelefonskiBroj broj){
         imenik.put(ime, broj);
@@ -22,7 +22,7 @@ public class Imenik {
         String vrati = new String();
         int k=1;
         for (Map.Entry<String, TelefonskiBroj> value :  imenik.entrySet()){
-            if(value.getKey().charAt(0) ==  s) vrati = "" + (k++) + ". " + value.getKey() + " - " + value.getValue().ispisi() + "\n";
+            if(value.getKey().charAt(0) ==  s) vrati += "" + (k++) + ". " + value.getKey() + " - " + value.getValue().ispisi() + "\n";
         }
         return vrati;
     }
@@ -33,13 +33,20 @@ public class Imenik {
 
         Set<String> set = new TreeSet<String>();
         for (Map.Entry<String, TelefonskiBroj> value :  imenik.entrySet()){
-            if(value.getValue().ispisi().equals(pozivni)) set.add(value.getKey());
+            if(value.getValue().getPozivni().equals(pozivni)) set.add(value.getKey());
         }
         return set;
     }
 
     Set<TelefonskiBroj> izGradaBrojevi(Grad g){
-        return new TreeSet<TelefonskiBroj>();
+        FiksniBroj broj = new FiksniBroj(g, "1234");
+        String pozivni = new String(broj.getPozivni());
+
+        Set<TelefonskiBroj> set = new TreeSet<TelefonskiBroj>();
+        for(Map.Entry<String, TelefonskiBroj> value : imenik.entrySet()){
+            if(value.getValue().getPozivni().equals(pozivni));
+        }
+        return set;
     }
 
 
@@ -55,5 +62,9 @@ public class Imenik {
     public int hashCode() {
         return Objects.hash(imenik);
     }
-}
 
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
+}

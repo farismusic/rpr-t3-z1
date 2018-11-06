@@ -1,13 +1,17 @@
 package ba.unsa.etf.rpr.tutorijal03;
 
 import javax.lang.model.element.NestingKind;
+import java.util.Set;
+import java.util.TreeSet;
+
+
 
 public class Main {
 
     public static void main(String[] args) {
-        TelefonskiBroj med = new MedunarodniBroj("+387", "61/358-331");
-        TelefonskiBroj hak = new MedunarodniBroj("+387", "62/961-200");
-        TelefonskiBroj kk = new MedunarodniBroj("+387", "34/889-000");
+        TelefonskiBroj med = new FiksniBroj(FiksniBroj.Grad.SARAJEVO, "61/358-331");
+        TelefonskiBroj hak = new FiksniBroj(FiksniBroj.Grad.SARAJEVO, "62/961-200");
+        TelefonskiBroj kk = new FiksniBroj(FiksniBroj.Grad.BIHAC, "34/889-000");
         Imenik imenik = new Imenik();
         imenik.dodaj("Faris", med);
         imenik.dodaj("Ferzet", hak);
@@ -15,5 +19,6 @@ public class Main {
         //System.out.println(imenik.dajBroj("Faris"));
         //System.out.println(imenik.dajIme(med));
         System.out.println(imenik.naSlovo('F'));
+
     }
 }
