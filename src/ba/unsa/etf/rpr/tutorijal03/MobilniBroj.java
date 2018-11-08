@@ -1,17 +1,16 @@
 package ba.unsa.etf.rpr.tutorijal03;
 
-import javax.lang.model.element.NestingKind;
 import java.util.Objects;
 
-public class MobilniBroj extends TelefonskiBroj{
+public class MobilniBroj extends TelefonskiBroj implements Comparable{
     private String pozivni;
-    private String bez_pozivnog;
+    private String bezPozivnog;
     MobilniBroj(int mobilnaMreza, String broj){
         pozivni = "0" + mobilnaMreza;
-        bez_pozivnog = broj;
+        bezPozivnog = broj;
     }
     public String ispisi(){
-        return pozivni + "/" + bez_pozivnog;
+        return pozivni + "/" + bezPozivnog;
     }
 
     @Override
@@ -21,15 +20,20 @@ public class MobilniBroj extends TelefonskiBroj{
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {return true;}
+        if (o == null || getClass() != o.getClass()) {return false;}
         MobilniBroj that = (MobilniBroj) o;
         return Objects.equals(pozivni, that.pozivni) &&
-                Objects.equals(bez_pozivnog, that.bez_pozivnog);
+                Objects.equals(bezPozivnog, that.bezPozivnog);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pozivni, bez_pozivnog);
+        return Objects.hash(pozivni, bezPozivnog);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 }

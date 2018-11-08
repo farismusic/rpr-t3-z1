@@ -2,15 +2,15 @@ package ba.unsa.etf.rpr.tutorijal03;
 
 import java.util.Objects;
 
-public class MedunarodniBroj extends TelefonskiBroj {
+public class MedunarodniBroj extends TelefonskiBroj implements Comparable{
     private String pozivni;
-    private String bez_pozivnog;
+    private String bezPozivnog;
     MedunarodniBroj(String drzava, String broj){
         pozivni = drzava;
-        bez_pozivnog = broj;
+        bezPozivnog = broj;
     }
     public String ispisi(){
-        return pozivni +bez_pozivnog;
+        return pozivni +bezPozivnog;
     }
 
     public String getPozivni() {
@@ -20,15 +20,20 @@ public class MedunarodniBroj extends TelefonskiBroj {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {return true;}
+        if (o == null || getClass() != o.getClass()) {return false;}
         MedunarodniBroj that = (MedunarodniBroj) o;
         return Objects.equals(pozivni, that.pozivni) &&
-                Objects.equals(bez_pozivnog, that.bez_pozivnog);
+                Objects.equals(bezPozivnog, that.bezPozivnog);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pozivni, bez_pozivnog);
+        return Objects.hash(pozivni, bezPozivnog);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 }

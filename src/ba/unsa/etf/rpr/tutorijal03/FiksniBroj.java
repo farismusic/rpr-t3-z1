@@ -2,19 +2,21 @@ package ba.unsa.etf.rpr.tutorijal03;
 
 import java.util.Objects;
 
-public class FiksniBroj extends TelefonskiBroj implements Comparable{
+public class FiksniBroj extends TelefonskiBroj implements Comparable<TelefonskiBroj> {
+
+
     @Override
-    public int compareTo(Object o) {
-        return 0;
+    public int compareTo(TelefonskiBroj o) {
+        return ispisi().compareTo(o.ispisi());
     }
 
     public enum Grad {
         BRCKO, BIHAC, ORASJE, TUZLA, ZENICA, GORAZDE, TRAVNIK, MOSTAR, SIROKI_BRIJEG, SARAJEVO, LIVNO, MRKONJIC_GRAD, BANJA_LUKA, PRIJEDOR, DOBOJ, SAMAC, BIJELJINA, ZVORNIK, PALE, FOCA, TREBINJE;
     }
     private String pozivni;
-    private String bez_pozivnog;
+    private String bezPozivnog;
     FiksniBroj(Grad grad, String broj){
-        bez_pozivnog=broj;
+        bezPozivnog=broj;
         switch(grad){
             case BRCKO:
                 pozivni = "049";
@@ -84,11 +86,11 @@ public class FiksniBroj extends TelefonskiBroj implements Comparable{
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {return true;}
+        if (o == null || getClass() != o.getClass()) {return false;}
         FiksniBroj that = (FiksniBroj) o;
         return Objects.equals(pozivni, that.pozivni) &&
-                Objects.equals(bez_pozivnog, that.bez_pozivnog);
+                Objects.equals(bezPozivnog, that.bezPozivnog);
     }
 
     public String getPozivni() {
@@ -97,11 +99,11 @@ public class FiksniBroj extends TelefonskiBroj implements Comparable{
 
     @Override
     public int hashCode() {
-        return Objects.hash(pozivni, bez_pozivnog);
+        return Objects.hash(pozivni, bezPozivnog);
     }
 
-    public String ispisi(){
-        return new String(pozivni+"/"+bez_pozivnog);
+    public final String ispisi() {
+        return new String(pozivni+"/"+bezPozivnog);
     }
 
 }

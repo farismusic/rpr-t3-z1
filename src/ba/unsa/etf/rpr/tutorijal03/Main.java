@@ -1,12 +1,10 @@
 package ba.unsa.etf.rpr.tutorijal03;
 
-import javax.lang.model.element.NestingKind;
-import java.util.Set;
-import java.util.TreeSet;
 
 
 
-public class Main {
+public final class Main {
+    private Main(){}
 
     public static void main(String[] args) {
         TelefonskiBroj med = new FiksniBroj(FiksniBroj.Grad.SARAJEVO, "61/358-331");
