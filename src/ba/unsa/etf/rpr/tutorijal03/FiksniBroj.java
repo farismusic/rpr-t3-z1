@@ -2,7 +2,12 @@ package ba.unsa.etf.rpr.tutorijal03;
 
 import java.util.Objects;
 
-public class FiksniBroj extends TelefonskiBroj {
+public class FiksniBroj extends TelefonskiBroj implements Comparable{
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
+
     public enum Grad {
         BRCKO, BIHAC, ORASJE, TUZLA, ZENICA, GORAZDE, TRAVNIK, MOSTAR, SIROKI_BRIJEG, SARAJEVO, LIVNO, MRKONJIC_GRAD, BANJA_LUKA, PRIJEDOR, DOBOJ, SAMAC, BIJELJINA, ZVORNIK, PALE, FOCA, TREBINJE;
     }
